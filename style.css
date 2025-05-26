@@ -1,0 +1,74 @@
+:root {
+  --main-text-color: #000000;
+  --secondary-text-color: #777b84;
+  --background-color: #ffffff;
+  --background-color-transpart: #ffffff7e;
+  --highlight-color: #dfdfdf;
+  --highlight-color-transparent: #dfdfdf5e;
+}
+@font-face {
+  font-family: roboto;
+  src: url(fonts/Roboto-Medium.ttf);
+}
+.darkmode {
+  --main-text-color: #edeef0;
+  --secondary-text-color: #777b84;
+  --background-color: #111113;
+  --background-color-transparent: #111113c1;
+  --highlight-color: #212225;
+  --highlight-color-transparent: #21222565;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  border-image: url(img/border.png) 25% repeat;
+  border-style: solid;
+  border-width: 45px;
+}
+body {
+  margin: 50px;
+  font-family: roboto;
+  background-color: var(--background-color);
+  color: var(--main-text-color);
+  height: 1000px;
+}
+a {
+  color: var(--main-text-color);
+  text-decoration: none;
+}
+
+.navigation {
+  position: sticky;
+  top: 50px;
+  font-size: 0.7em;
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  justify-self: center;
+  border: 1px solid var(--highlight-color);
+  border-radius: 5px;
+  backdrop-filter: blur(20px);
+}
+.nav-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0px 10px;
+  align-items: center;
+  height: 35px;
+  border-bottom: 1px solid var(--highlight-color);
+  background-color: var(--background-color-transparent);
+}
+.nav-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  background-color: var(--highlight-color-transparent);
+}
+.nav-button {
+}
