@@ -11,57 +11,79 @@
   </head>
   <body class="darkmode">
     <div class="overlay"></div>
-      <header class="navigation">
-        <div class="nav-top">
-          <a href="" class="nav-button" id="home">Home</a>
-          <a href="" class="nav-button" id="work">Work</a>
-          <a href="" class="nav-button" id="about">About</a>
-          <a href="" class="nav-button" id="journal">Journal</a>
-          <a href="" class="nav-button" id="contact">Contact</a>
-        </div>
-        <div class="nav-bottom">Available January 2024</div>
-      </header>
-      <div class="darkmode">
-        <img src="" />
-        <p>Lights on·off</p>
+    <header class="navigation">
+      <div class="nav-top">
+        <a href="" class="nav-button" id="home">Home</a>
+        <a href="" class="nav-button" id="work">Work</a>
+        <a href="" class="nav-button" id="about">About</a>
+        <a href="" class="nav-button" id="journal">Journal</a>
+        <a href="" class="nav-button" id="contact">Contact</a>
       </div>
-      <section>
-        <div class="description-card">
-          <img src="" id="Jack-img" />
-          <h1>Hi, I'm Zak.</h1>
-          <p>
-            I am a creative developer and creator currently based in Berlin. My
-            work has been featured by brands such as Framer, Figma, Adobe,
-            Webflow, and others. Subscribe below to follow my thinking on
-            business, design, and product.
-          </p>
-        </div>
-        <div class="grid-background">
-          <!-- top -->
-          <div></div>
-          <div></div>
-          <div></div>
+      <div class="nav-bottom">Available January 2024</div>
+    </header>
+      <div id="darkmode-selector" onclick="toggleTheme()">
+        <svg class="icon-light" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="24" fill="currentColor">
+          <path d="M280-240q-100 0-170-70T40-480q0-100 70-170t170-70h400q100 0 170 70t70 170q0 100-70 170t-170 70H280Zm0-80h400q66 0 113-47t47-113q0-66-47-113t-113-47H280q-66 0-113 47t-47 113q0 66 47 113t113 47Zm0-40q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm200-120Z"/>
+        </svg>
+  <!-- darkmode icon -->
+        <svg class="icon-dark" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="24" fill="currentColor">
+          <path d="M280-240q-100 0-170-70T40-480q0-100 70-170t170-70h400q100 0 170 70t70 170q0 100-70 170t-170 70H280Zm0-80h400q66 0 113-47t47-113q0-66-47-113t-113-47H280q-66 0-113 47t-47 113q0 66 47 113t113 47Zm400-40q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM480-480Z"/>
+        </svg>
+        Lights on·off
+    </div>
+    <section id="description-container">
+      <div id="description-card">
+        <img src="img/jack.png" id="Jack-img" />
+        <h1>Hi, I'm Zak.</h1>
+        <p>
+          I am a creative developer and creator currently based in Berlin. My
+          work has been featured by brands such as Framer, Figma, Adobe,
+          Webflow, and others. Subscribe below to follow my thinking on
+          business, design, and product.
+        </p>
+      </div>
+    </section>
+    <div class="grid-background">
+      <!-- top -->
+      <div id="top-left"><spam class="number">250</spam></div>
+      <div id="long-space"></div>
+      <div></div>
 
-          <!-- Middle -->
-          <div>weird numbers</div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+      <!-- middle -->
+      <div id="numbers-container">
+        <span class="number">900</span>
+        <span class="number">850</span>
+        <span class="number">800</span>
+        <span class="number">750</span>
+        <span class="number">700</span>
+        <span class="number">650</span>
+        <span class="number">600</span>
+        <span class="number">550</span>
+        <span class="number">500</span>
+        <span class="number">450</span>
+        <span class="number">400</span>
+        <span class="number">350</span>
+        <span class="number">300</span>
+      </div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
 
-          <!-- buttom -->
-          <div></div>
-          <div>BERLIN, GERMANY</div>
-          <div></div>
-          <div>timer</div>
-          <div></div>
-        </div>
-      </section>
-      <section class="highlights"></section>
-      <section class="all-the-rest">
-        <section class="projects-writing-screencast"></section>
-        <section class="startups"></section>
-        <footer></footer>
-      </section>
+      <!-- bottom -->
+      <div></div>
+      <div id="germany">BERLIN, GERMANY</div>
+      <div></div>
+      <div id="clock">time</div>
+      <div></div>
+    </div>
+    <section class="highlights"></section>
+    <section class="all-the-rest">
+      <section class="projects-writing-screencast"></section>
+      <section class="startups"></section>
+      <footer></footer>
+    </section>
   </body>
+  <script src="./JS/clock.js"></script>
+  <script src="./JS/darkmode.js"></script>
 </html>

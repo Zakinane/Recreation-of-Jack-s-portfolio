@@ -1,57 +1,77 @@
+@media (max-width: 1195px) {
+  #description-card {
+    width: 500px !important;
+    h1 {
+      font-size: 3em !important;
+    }
+  }
+
+  .grid-background {
+    grid-template-columns: 45px 1fr 1fr 1fr 45px !important;
+  }
+}
+@media (max-width: 810px) {
+}
 :root {
   --main-text-color: #000000;
   --secondary-text-color: #777b84;
+  --third-text-color: #ced0d3;
   --background-color: #ffffff;
   --background-color-transpart: #ffffff7e;
   --highlight-color: #dfdfdf;
   --highlight-color-transparent: #dfdfdf5e;
+  --border: url("img/border.png");
+    --switch: url("icons/toggle_off.svg");
 }
 @font-face {
   font-family: roboto;
   src: url(fonts/Roboto-Medium.ttf);
 }
+@font-face {
+  font-family: bluunext;
+  src: url(fonts/BluuNext-Bold.otf);
+}
+@font-face {
+  font-family: jetbrains;
+  src: url(fonts/JetBrainsMono-Regular.ttf);
+}
 .darkmode {
   --main-text-color: #edeef0;
   --secondary-text-color: #777b84;
+  --third-text-color: #3e4046;
   --background-color: #111113;
   --background-color-transparent: #111113c1;
   --highlight-color: #212225;
   --highlight-color-transparent: #21222565;
+  --border: url("img/border1.png");
+  --switch: url("icons/toggle_off.svg");
 }
+
+/* ------------------ Overlay ------------------------ */
 .overlay {
   position: fixed;
+  pointer-events: none;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 100;
-  border-image: url(img/border.png) 25% repeat;
+  border-image: var(--border) 25% repeat;
   border-style: solid;
   border-width: 45px;
 }
-body {
-  margin: 50px;
-  font-family: roboto;
-  background-color: var(--background-color);
-  color: var(--main-text-color);
-  height: 1000px;
-}
-a {
-  color: var(--main-text-color);
-  text-decoration: none;
-}
-
 .navigation {
   position: sticky;
   top: 50px;
   font-size: 0.7em;
   display: flex;
   flex-direction: column;
-  width: 360px;
+  width: 359px;
   justify-self: center;
   border: 1px solid var(--highlight-color);
   border-radius: 5px;
   backdrop-filter: blur(20px);
+  z-index: 100;
 }
 .nav-top {
   display: flex;
@@ -71,4 +91,148 @@ a {
   background-color: var(--highlight-color-transparent);
 }
 .nav-button {
+}
+
+#darkmode-selector {
+  display: flex;
+  align-items: center;
+  color: var(--secondary-text-color);
+  gap: 5px;
+  padding: 5px 10px 5px 5px;
+  font-size: 0.8em;
+  position: fixed;
+  bottom: 45px;
+  left: 50px;
+  z-index: 100;
+  &:hover {
+    cursor: pointer;
+    border-radius: 100px;
+    background-color: var(--third-text-color);
+    color: var(--main-text-color);
+  }
+}
+.icon-dark {
+  display: none;
+}
+
+body.darkmode .icon-light {
+  display: none;
+}
+body.darkmode .icon-dark {
+  display: inline;
+}
+
+a {
+  color: var(--main-text-color);
+  text-decoration: none;
+}
+
+/* ----------------------- Body -------------------- */
+body {
+  margin: 50px;
+  font-family: roboto;
+  background-color: var(--background-color);
+  color: var(--main-text-color);
+  height: 1000px;
+}
+
+/* ---------------- Description card --------------- */
+#description-container {
+  width: calc(100% - 100px);
+  position: absolute;
+  top: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+#description-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 640px;
+  p {
+    margin: 0;
+    font-size: 1.15em;
+    text-align: center;
+    line-height: 1.5em;
+    color: var(--secondary-text-color);
+  }
+  h1 {
+    margin: 50px 0px 0px 0px;
+    font-family: bluunext;
+    font-size: 6em;
+  }
+
+  img {
+    width: 90px;
+    border-radius: 100%;
+  }
+}
+/* --------------- Grid background ------------------------- */
+#top-left {
+  grid-area: top-left;
+  display: flex;
+  justify-content: space-around;
+  writing-mode: sideways-lr;
+  text-orientation: mixed;
+  align-items: flex-end;
+}
+#long-space {
+  grid-area: long-space;
+}
+#numbers-container {
+  display: flex;
+  justify-content: space-around;
+  writing-mode: sideways-lr;
+  text-orientation: mixed;
+  align-items: flex-end;
+}
+#germany {
+  font-family: jetbrains;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  color: var(--secondary-text-color);
+}
+#clock {
+  font-family: jetbrains;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  color: var(--secondary-text-color);
+}
+
+.grid-background {
+  font-size: 0.6em;
+  display: grid;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: calc(100% - 50px);
+  grid-template-columns: 1fr 360px 360px 360px 1fr;
+  grid-template-rows: 60px 550px 50px;
+  grid-template-areas:
+    "top-left long-space long-space long-space top-right"
+    "weird . . . ."
+    "bottom-left germany . clock bottom-right";
+
+  div {
+    border: 1px solid var(--highlight-color);
+  }
+}
+.number {
+  color: var(--third-text-color);
+  position: relative;
+  padding-right: 10px;
+  &::after {
+    font-size: 0.1em;
+    content: "|";
+    position: absolute;
+    right: 0;
+    top: 7px;
+  }
 }
