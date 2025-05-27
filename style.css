@@ -21,7 +21,7 @@
   --highlight-color: #dfdfdf;
   --highlight-color-transparent: #dfdfdf5e;
   --border: url("img/border.png");
-    --switch: url("icons/toggle_off.svg");
+  --switch: url("icons/toggle_off.svg");
 }
 @font-face {
   font-family: roboto;
@@ -34,6 +34,10 @@
 @font-face {
   font-family: jetbrains;
   src: url(fonts/JetBrainsMono-Regular.ttf);
+}
+@font-face {
+  font-family: caveat;
+  src: url(fonts/Caveat-Regular.ttf);
 }
 .darkmode {
   --main-text-color: #edeef0;
@@ -107,7 +111,7 @@
   &:hover {
     cursor: pointer;
     border-radius: 100px;
-    background-color: var(--third-text-color);
+    background-color: var(--highlight-color-transparent);
     color: var(--main-text-color);
   }
 }
@@ -133,10 +137,15 @@ body {
   font-family: roboto;
   background-color: var(--background-color);
   color: var(--main-text-color);
-  height: 1000px;
+  height: auto;
 }
 
-/* ---------------- Description card --------------- */
+/* ---------------- Description --------------- */
+#description {
+  width: 100%;
+  height: 600px;
+  margin-bottom: 40px;
+}
 #description-container {
   width: calc(100% - 100px);
   position: absolute;
@@ -214,7 +223,7 @@ body {
   left: 25px;
   width: calc(100% - 50px);
   grid-template-columns: 1fr 360px 360px 360px 1fr;
-  grid-template-rows: 60px 550px 50px;
+  grid-template-rows: 60px 555px 45px;
   grid-template-areas:
     "top-left long-space long-space long-space top-right"
     "weird . . . ."
@@ -235,4 +244,103 @@ body {
     right: 0;
     top: 7px;
   }
+}
+/* -------------------------- Highlights ---------------------- */
+#highlights {
+  color: var(--secondary-text-color);
+  font-family: caveat;
+  width: 100%;
+  height: auto;
+}
+.stylish-text {
+  text-wrap: nowrap;
+  flex-direction: column;
+  align-items: flex-end;
+  display: flex;
+  width: 200px;
+  gap: 10px;
+  position: relative;
+  top: 0;
+  left: 160px;
+  margin-bottom: 20px;
+  img {
+    width: 25px;
+  }
+}
+#cards {
+  max-width: 1280px;
+  width: 100%;
+  height: 33vw;
+  display: grid;
+  justify-self: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.card-container {
+  position: relative;
+}
+.card-bg {
+  position: relative;
+  display: flex;
+  color: var(--main-text-color);
+  justify-content: center;
+  align-items: center;
+  height: 30vw;
+  background-color: var(--third-text-color);
+  border: 1px dashed gray;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.card {
+  background-color: rgb(101, 63, 63);
+  height: 30vw;
+  width: 400px;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  z-index: 10;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: ease 0.3s;
+    &:hover { 
+      transform: scale(1.05);
+    }
+  }
+}
+#card1 {
+  top: 20px;
+  rotate: 3deg;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  cursor: grab;
+}
+#card2 {
+  top: 40px;
+  rotate: -3deg;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  cursor: grab;
+}
+#card3 {
+  top: 20px;
+  rotate: 2deg;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  cursor: grab;
+}
+#card4 {
+  rotate: -2deg;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  cursor: grab;
 }
