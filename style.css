@@ -392,12 +392,14 @@ body {
   left: 25px;
   width: calc(100% - 50px);
   grid-template-columns: 1fr 360px 360px 360px 1fr;
-  grid-template-rows: 300px 1fr 1fr 1.4fr 0.9fr 0.9fr 0.9fr 0.9fr;
-  grid-template-areas:
+  grid-template-rows: 300px 1fr 1fr 1.4fr 0.9fr 0.9fr 0.45fr 1.5fr 1fr;
+  grid-template-areas: /* Holy moly*/
     "ultra-long-left project-category . . ultra-long-right"
     "ultra-long-left project-title project-image project-image ultra-long-right"
     "ultra-long-left project-titleI project-imageI project-imageI ultra-long-right"
     "ultra-long-left project-titleII project-imageII project-imageII ultra-long-right"
+    "ultra-long-left project-categoryI . . ultra-long-right"
+    "ultra-long-left project-categoryI . . ultra-long-right"
     "ultra-long-left project-categoryI . . ultra-long-right"
     "ultra-long-left project-categoryI . . ultra-long-right"
     "ultra-long-left project-categoryI . . ultra-long-right";
@@ -451,10 +453,10 @@ body {
     font-size: 0.9em;
   }
   &:hover {
-    svg{
-      translate :30px -30px ;
+    svg {
+      translate: 30px -30px;
     }
-    span{
+    span {
       color: #e54d2e;
     }
     img {
@@ -479,7 +481,7 @@ body {
   }
 }
 /* The New Tag */
-.new{
+.new {
   position: absolute;
   top: -6px;
   left: 75px;
@@ -543,15 +545,15 @@ body {
     }
   }
 }
-.last-updated{
+.last-updated {
   position: relative;
   font-size: 0.23em;
   font-family: jetbrains;
   align-self: flex-end;
   margin-right: 60px;
 }
-.last-updated::before{
-content: "";
+.last-updated::before {
+  content: "";
   position: absolute;
   top: 50%;
   left: -70%;
@@ -622,7 +624,14 @@ content: "";
 #ultra-long-right {
   grid-area: ultra-long-right;
 }
-.new{
+.new {
   color: white;
   background-color: #e54d2e;
+}
+
+/* next */
+.stylish-textI {
+  display: flex;
+  font-family: caveat;
+  color: grey;
 }
