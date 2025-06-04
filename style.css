@@ -392,7 +392,7 @@ body {
   left: 25px;
   width: calc(100% - 50px);
   grid-template-columns: 1fr 360px 360px 360px 1fr;
-  grid-template-rows: 300px 1fr 1fr 1.4fr 0.9fr 0.9fr 0.9fr;
+  grid-template-rows: 300px 1fr 1fr 1.4fr 0.9fr 0.9fr 0.9fr 0.9fr;
   grid-template-areas:
     "ultra-long-left project-category . . ultra-long-right"
     "ultra-long-left project-title project-image project-image ultra-long-right"
@@ -505,7 +505,6 @@ body {
   transition: ease 0.3s;
 }
 
-
 .project-category {
   grid-area: project-category;
   display: flex;
@@ -543,6 +542,23 @@ body {
       border-radius: 5px;
     }
   }
+}
+.last-updated{
+  position: relative;
+  font-size: 0.23em;
+  font-family: jetbrains;
+  align-self: flex-end;
+  margin-right: 60px;
+}
+.last-updated::before{
+content: "";
+  position: absolute;
+  top: 50%;
+  left: -70%;
+  width: 60%;
+  height: 0.1px;
+  background-color: var(--secondary-text-color);
+  transform: translateY(-50%);
 }
 .project-image {
   grid-area: project-image;
