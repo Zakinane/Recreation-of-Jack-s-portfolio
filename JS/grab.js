@@ -1,45 +1,76 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   let cards = document.querySelectorAll(".card");
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card img");
 
-//   cards.forEach((image) => {
-//     const originalWidth = image.style.width;
-//     const originalHeight = image.style.height;
-//     const src = image.src;
-//     const originalRotation = image.style.rotate;
+  let draggedImage = null;
+  let newImage = null;
 
-//     image.addEventListener("mousedown", () => {
-//       image.style.display = "none";
-//       let newImage = document.createElement("img");
+  let xClicked = 0;
+  let yClicked = 0;
 
-//       newImage.src = "../img/jack.png";
-//       newImage.style.width = originalWidth;
-//       newImage.style.height = originalHeight;
-//       newImage.classList.add("drag-card");
-//       newImage.style.rotate = originalRotation;
-//       document.body.appendChild(newImage); // -------------- stupid solution
+  let originalX = 0;
+  let originalY = 0;
 
-//       document.addEventListener("mousemove", (event) => {
-//         const x = event.clientX;
-//         const y = event.clientY;
-//         newImage.style.left = `${x}px`;
-//         newImage.style.top = `${y}px`;
+  cards.forEach((image) => {
+    const style = getComputedStyle(image);
+    const originalWidth = style.width;
+    const originalHeight = style.height;
+    const src = image.src;
+    const originalRotation = getComputedStyle(image.parentElement).rotate;
 
-//         image.style.left = event.clientX + "px";
-//         image.style.top = event.clientY + "px";
-//       });
-//     });
-//   });
-// });
+    image.addEventListener("mousedown", (event) => {
+      if (draggedImage) return;
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   let cards = document.querySelectorAll(".card");
+      draggedImage = image;
 
-//   cards.forEach((image) => {
-//     image.addEventListener("mousedown", () => {
-//       const height = image.clientHeight;
-//       const width = image.clientWidth;
-//       image.style.top = document.pageY - height / 2 + "px";
-//       image.style.left = document.pageX - width / 2 + "px";
-//     });
-//   });
-// });
+      const rect = image.getBoundingClientRect();
+
+      // Position where inside the image the user clicked
+      xClicked = event.clientX - rect.left;
+      yClicked = event.clientY - rect.top;
+
+      originalX = rect.left;
+      originalY = rect.top;
+
+      newImage = document.createElement("img");
+
+      newImage.src = src;
+      newImage.classList.add("drag-card");
+
+      newImage.style.width = originalWidth;
+      newImage.style.height = originalHeight;
+      newImage.style.rotate = originalRotation;
+
+      newImage.style.position = "fixed";
+
+      newImage.style.left = `${event.clientX + 9 -  xClicked}px`;
+      newImage.style.top = `${event.clientY + 10 - yClicked}px`;
+
+      document.body.appendChild(newImage);
+
+      image.style.display = "none";
+    });
+  });
+
+  document.addEventListener("mousemove", (event) => {
+    if (!draggedImage || !newImage) return;
+
+    newImage.style.left = `${event.clientX - xClicked}px`;
+    newImage.style.top = `${event.clientY - yClicked}px`;
+  });
+
+  document.addEventListener("mouseup", () => {
+    if (!draggedImage || !newImage) return;
+
+    newImage.style.left = `${originalX + 9}px`;
+    newImage.style.top = `${originalY + 10}px`;
+
+    setTimeout(() => {
+      newImage.remove();
+
+      draggedImage.style.display = "";
+
+      newImage = null;
+      draggedImage = null;
+    }, 300);
+  });
+});
