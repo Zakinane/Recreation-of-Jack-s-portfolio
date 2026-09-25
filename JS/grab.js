@@ -31,15 +31,15 @@
 //   });
 // });
 
-document.addEventListener("DOMContentLoaded", () => {
-  let cards = document.querySelectorAll(".card");
+// document.addEventListener("DOMContentLoaded", () => {
+//   let cards = document.querySelectorAll(".card");
 
-  cards.forEach((image) => {
-    image.addEventListener("mousedown", () => {
-      const height = image.clientHeight;
-      const width = image.clientWidth;
-      image.style.top = document.pageY - height / 2 + "px";
-      image.style.left = document.pageX - width / 2 + "px";
-    });
-  });
-});
+//   cards.forEach((image) => {
+//     image.addEventListener("mousedown", () => {
+//       const height = image.clientHeight;
+//       const width = image.clientWidth;
+//       image.style.top = document.pageY - height / 2 + "px";
+//       image.style.left = document.pageX - width / 2 + "px";
+//     });
+//   });
+// });
